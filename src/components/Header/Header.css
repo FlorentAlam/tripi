@@ -7,3 +7,14 @@ header{
 header h1{
     margin: 0;
 }
+header a{
+    text-decoration: none;
+    color: black;
+}
+
+header a:first-child{
+    margin-right: 2em;
+}
+header a:nth-child(2){
+    font-weight: bold;
+}
