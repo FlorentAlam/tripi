@@ -1,4 +1,4 @@
-import { AnyAction } from "redux";
+import { Action } from "redux";
 import { LOGIN, LOGOUT } from '../constantes/user';
 
 type User = {
@@ -9,7 +9,7 @@ const initialState: User = {
     isLogged: false
 }
 
-const userReducer = (state = initialState, action: AnyAction) => {
+const userReducer = (state = initialState, action: Action) => {
     switch(action.type){
         case LOGIN: {
             return {...state, isLogged: true}

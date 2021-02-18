@@ -1,10 +1,22 @@
 import React from 'react';
 import Page from './Page';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const Dashboard = () => (
+type DashboardProps = {
+    isLogged: boolean
+}
+
+const Dashboard = ({isLogged}: DashboardProps) => (
     <Page pageTitle="Tripi - Tableau de bord">
-        <div>dashboard</div>
+        <div>
+            {isLogged && <Redirect to="/"/>}
+        </div>
     </Page>
 );
 
-export default Dashboard;
+const mapStateToProps = (state: any) => ({
+    isLogged: state.user.isLogged
+});
+
+export default connect(mapStateToProps)(Dashboard);

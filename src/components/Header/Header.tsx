@@ -1,16 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Header.css';
 
-const Header = () => (
+type HeaderProps = {
+    isLogged: boolean
+}
+
+const Header = ({isLogged}: HeaderProps) => (
     <header>
         <h1>tripi.</h1>
         <div>
-            <Link to="/connexion">Connexion</Link>
-            <Link to="/inscription">Inscription</Link>
-            <Link to="/tableau-de-bord">Tableau de bord</Link>
+            {!isLogged && (
+                <>
+                    <Link to="/connexion">Connexion</Link>
+                    <Link to="/inscription">Inscription</Link>
+                </>
+            )}
+            {isLogged && <Link to="/tableau-de-bord">Tableau de bord</Link>}
+            
         </div>
     </header>
 );
 
-export default Header;
+const mapStateToProps = (state: any) => ({
+    isLogged: state.user.isLogged
+});
+
+export default connect(mapStateToProps)(Header);

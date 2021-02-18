@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import Page from './Page';
 import './Connexion.css';
 
@@ -54,4 +55,4 @@ const Inscription = () => {
     </Page>
 )};
 
-export default Inscription;
+export default connect()(Inscription);

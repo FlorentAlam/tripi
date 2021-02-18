@@ -18,7 +18,7 @@ const AppRouter = ({routes}: AppRouterProps) => (
         <Switch>
             <Route path="/" exact component={Home}/>
             {routes.map(route => (
-                <Route path={route.path} component={route.component}/>
+                <Route path={route.path} component={route.component} key={route.path}/>
             ))}
         </Switch>
     </Router>

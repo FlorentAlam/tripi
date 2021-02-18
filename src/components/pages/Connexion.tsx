@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
+import { connect, useDispatch } from 'react-redux';
 import Page from './Page';
 import './Connexion.css';
+import { logUser } from '../../redux/actions/user';
 
-const Connexion = () => {
+
+type ConnexionProps = {
+    isLogged: boolean
+}
+
+const Connexion = ({isLogged}: ConnexionProps) => {
     
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe]  = useState('');
     const [error, setError] = useState('');
-
+    
     const connect = (e: React.MouseEvent) => {
         e.preventDefault();
         try{
             if(!checkInputsLength()) throw new Error('Tout les champs doivent être remplis.');
             if(!checkPasswordLength()) throw new Error('Votre mot de passe doit comporter au moins 6 caractères.');
             setError('');
-            history.push('/tableau-de-bord');
+            dispatch(logUser());
         } catch (e){
             setError(e.message);
         }
@@ -49,8 +57,13 @@ const Connexion = () => {
                 <button type="submit" onClick={connect}>Connexion</button>
             </form>
             {!!error && error}
+            { isLogged && <Redirect to="/tableau-de-bord"/>}
         </div>
     </Page>
 )};
 
-export default Connexion;
+const mapStateToProps = (state: any) => ({
+    isLogged: state.user.isLogged
+});
+
+export default connect(mapStateToProps)(Connexion);
