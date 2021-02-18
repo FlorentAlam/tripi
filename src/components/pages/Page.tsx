@@ -1,4 +1,5 @@
 import React, { ReactElement, useEffect } from 'react';
+import './Page.css';
 
 type PageProps = {
     pageTitle: string;
@@ -11,9 +12,9 @@ const Page = ({pageTitle, children}: PageProps) => {
     }, []);
 
     return (
-        <>
+        <div className="page">
             {children}
-        </>
+        </div>
     )
 }
 

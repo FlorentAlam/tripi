@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Page from './Page';
+import './Connexion.css';
 
 const Connexion = () => {
     
+    const history = useHistory();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe]  = useState('');
@@ -14,6 +18,7 @@ const Connexion = () => {
             if(!checkInputsLength()) throw new Error('Tout les champs doivent être remplis.');
             if(!checkPasswordLength()) throw new Error('Votre mot de passe doit comporter au moins 6 caractères.');
             setError('');
+            history.push('/tableau-de-bord');
         } catch (e){
             setError(e.message);
         }
@@ -29,7 +34,7 @@ const Connexion = () => {
 
     return (
     <Page pageTitle="Tripi - Connexion">
-        <div>
+        <div className="loginForm">
             <h1>Connexion</h1>
             <form>
                 <label htmlFor="email">Adresse email</label>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Page from './Page';
+import './Connexion.css';
 
 const Inscription = () => {
     
@@ -34,7 +35,7 @@ const Inscription = () => {
 
     return (
     <Page pageTitle="Tripi - Inscription">
-        <div>
+        <div className="loginForm">
             <h1>Inscription</h1>
             <form>
                 <label htmlFor="email">Adresse email</label>
