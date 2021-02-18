@@ -11,8 +11,6 @@ type ConnexionProps = {
 }
 
 const Connexion = ({isLogged}: ConnexionProps) => {
-    
-    const history = useHistory();
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
@@ -42,22 +40,27 @@ const Connexion = ({isLogged}: ConnexionProps) => {
 
     return (
     <Page pageTitle="Tripi - Connexion">
-        <div className="loginForm">
-            <h1>Connexion</h1>
-            <form>
-                <label htmlFor="email">Adresse email</label>
-                <input type="email" name="email" id="email" autoComplete="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
-                
-                <label htmlFor="password">Mot de passe</label>
-                <input type="password" name="password" id="password" autoComplete="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
-                
-                <input type="checkbox" name="remember" id="remember" value={rememberMe} onChange={(e) => {setRememberMe(e.target.value)}}/>
-                <label htmlFor="remember">Se souvenir de moi</label>
-                
-                <button type="submit" onClick={connect}>Connexion</button>
-            </form>
-            {!!error && error}
-            { isLogged && <Redirect to="/tableau-de-bord"/>}
+        <div className="login connexion-page">
+            <div className="background"></div>
+            <main>
+                <h1>Connexion</h1>
+                <form>
+                    <label htmlFor="email">Adresse email</label>
+                    <input type="email" name="email" id="email" autoComplete="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                    
+                    <label htmlFor="password">Mot de passe</label>
+                    <input type="password" name="password" id="password" autoComplete="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
+                    
+                    <div className="checkbox-group">
+                        <input type="checkbox" name="remember" id="remember" value={rememberMe} onChange={(e) => {setRememberMe(e.target.value)}}/>
+                        <label htmlFor="remember">Se souvenir de moi</label>
+                    </div>
+
+                    <button type="submit" onClick={connect}>Connexion</button>
+                </form>
+                {!!error && error}
+                { isLogged && <Redirect to="/tableau-de-bord"/>}
+            </main>
         </div>
     </Page>
 )};

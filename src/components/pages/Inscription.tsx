@@ -36,21 +36,24 @@ const Inscription = () => {
 
     return (
     <Page pageTitle="Tripi - Inscription">
-        <div className="loginForm">
-            <h1>Inscription</h1>
-            <form>
-                <label htmlFor="email">Adresse email</label>
-                <input type="email" name="email" id="email" autoComplete="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
-                
-                <label htmlFor="password">Mot de passe</label>
-                <input type="password" name="password" id="password" autoComplete="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
-                
-                <label htmlFor="passwordRepeat">Répétez votre mot de passe</label>
-                <input type="password" name="passwordRepeat" id="passwordRepeat" autoComplete="password" value={passwordRepeat} onChange={(e) => {setpasswordRepeat(e.target.value)}}/>
-                
-                <button type="submit" onClick={subscribe}>Inscription</button>
-            </form>
-            {!!error && error}
+        <div className="login inscription-page">
+            <div className="background"></div>
+            <main>
+                <h1>Inscription</h1>
+                <form>
+                    <label htmlFor="email">Adresse email</label>
+                    <input type="email" name="email" id="email" autoComplete="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                    
+                    <label htmlFor="password">Mot de passe</label>
+                    <input type="password" name="password" id="password" autoComplete="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
+                    
+                    <label htmlFor="passwordRepeat">Répétez votre mot de passe</label>
+                    <input type="password" name="passwordRepeat" id="passwordRepeat" autoComplete="password" value={passwordRepeat} onChange={(e) => {setpasswordRepeat(e.target.value)}}/>
+                    
+                    <button type="submit" onClick={subscribe}>Inscription</button>
+                </form>
+                {!!error && error}
+            </main>
         </div>
     </Page>
 )};

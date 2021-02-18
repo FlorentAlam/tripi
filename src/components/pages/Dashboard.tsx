@@ -10,7 +10,7 @@ type DashboardProps = {
 const Dashboard = ({isLogged}: DashboardProps) => (
     <Page pageTitle="Tripi - Tableau de bord">
         <div>
-            {isLogged && <Redirect to="/"/>}
+            {!isLogged && <Redirect to="/"/>}
         </div>
     </Page>
 );

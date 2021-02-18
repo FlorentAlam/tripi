@@ -9,11 +9,11 @@ type HeaderProps = {
 
 const Header = ({isLogged}: HeaderProps) => (
     <header>
-        <h1>tripi.</h1>
+        <Link to="/"><h1>tripi.</h1></Link>
         <div>
             {!isLogged && (
                 <>
-                    <Link to="/connexion">Connexion</Link>
+                    <Link to="/connexion" className="connexion-link">Connexion</Link>
                     <Link to="/inscription">Inscription</Link>
                 </>
             )}

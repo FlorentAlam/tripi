@@ -8,6 +8,15 @@ header{
     left: 0;
     width: 100%;
     box-sizing: border-box;
+    color: black;
+    transform: translateY(-100%);
+    opacity: 0;
+
+    animation-duration: .8s;
+    animation-name: headAnimation;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
 }
 header h1{
     margin: 0;
@@ -17,9 +26,14 @@ header a{
     color: black;
 }
 
-header a:first-child{
+.connexion-link{
     margin-right: 2em;
 }
 header a:nth-child(2){
     font-weight: bold;
+}
+
+@keyframes headAnimation{
+    0% { transform: translateY(-100%); opacity: 0;}
+    100% { transform: translateY(0); opacity: 1;}
 }

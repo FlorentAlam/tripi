@@ -1,16 +1,55 @@
-.loginForm{
+.login{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.connexion-page{
+    flex-direction: row;
+}
+.inscription-page{
+    flex-direction: row-reverse;
+}
+.login .background{
+    width: 50%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.connexion-page .background{
+    background-image: url('../../assets/connexion_bg2.jpg');
+}
+.inscription-page .background{
+    background-image: url('../../assets/inscription_bg.jpg');
+}
+.login main{
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
 }
-.loginForm h1{
-    margin: 0;
-}
-.loginForm form{
+.login form{
     display: flex;
     flex-direction: column;
     width: 320px;
+}
+
+.login form input{
+    padding: .6em;
+    margin: .5em 0;
+}
+.login form .checkbox-group{
+    display: flex;
+}
+.login form .checkbox-group label{
+    margin-left: .5em;
+}
+.login form button{
+    align-self: center;
+    padding: .6em 2em;
+    margin-top: 1em;
+
 }
